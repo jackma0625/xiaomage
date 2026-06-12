@@ -1,0 +1,1044 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+BuildMaster | Industrial Materials
+</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+    'Inter',
+    sans-serif;
+
+    background:#0a0c0f;
+
+    color:white;
+
+    line-height:1.6;
+
+    -webkit-font-smoothing:antialiased;
+
+    overflow-x:hidden;
+}
+
+img{
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    transition:0.3s;
+}
+
+section{
+    position:relative;
+    padding:8rem 2rem;
+}
+
+.container{
+
+    max-width:1300px;
+
+    margin:auto;
+}
+
+.small-tag{
+
+    color:#d6a45f;
+
+    letter-spacing:3px;
+
+    font-size:0.8rem;
+
+    font-weight:600;
+
+    margin-bottom:1rem;
+}
+
+/* NAV */
+
+header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:999;
+
+    background:
+    rgba(10,10,10,0.35);
+
+    backdrop-filter:
+    blur(20px);
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.05);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+}
+
+nav{
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:1.2rem 2rem;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.logo{
+
+    font-size:1.5rem;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    color:white;
+}
+
+.logo span{
+    color:#d6a45f;
+}
+
+.nav-links{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:2rem;
+}
+
+.nav-links a{
+
+    color:
+    rgba(255,255,255,0.72);
+
+    font-size:0.95rem;
+}
+
+.nav-links a:hover{
+    color:#d6a45f;
+}
+
+/* HERO */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.72),
+    rgba(0,0,0,0.82)),
+
+    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1800&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+
+    padding:4rem 2rem;
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:1300px;
+
+    margin:auto;
+
+    width:100%;
+}
+
+.bg-text{
+
+    position:absolute;
+
+    top:50%;
+
+    right:-120px;
+
+    transform:translateY(-50%);
+
+    font-size:14rem;
+
+    font-weight:800;
+
+    line-height:1;
+
+    color:
+    rgba(255,255,255,0.03);
+
+    pointer-events:none;
+
+    user-select:none;
+}
+
+.hero h1{
+
+    font-size:7rem;
+
+    line-height:0.95;
+
+    max-width:900px;
+
+    margin-bottom:2rem;
+}
+
+.hero p{
+
+    color:
+    rgba(255,255,255,0.72);
+
+    font-size:1.2rem;
+
+    line-height:2;
+
+    max-width:650px;
+
+    margin-bottom:3rem;
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:1rem;
+
+    flex-wrap:wrap;
+
+    margin-bottom:4rem;
+}
+
+.hero-btn{
+
+    padding:1rem 2.2rem;
+
+    border-radius:999px;
+
+    font-weight:600;
+}
+
+.hero-btn.primary{
+
+    background:#d6a45f;
+
+    color:black;
+}
+
+.hero-btn.secondary{
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    color:white;
+}
+
+.hero-btn:hover{
+    transform:translateY(-4px);
+}
+
+.stats-grid{
+
+    display:flex;
+
+    gap:2rem;
+
+    flex-wrap:wrap;
+}
+
+.stat-box{
+
+    background:
+    rgba(255,255,255,0.04);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    padding:1.5rem 2rem;
+
+    border-radius:24px;
+
+    min-width:180px;
+}
+
+.stat-box h2{
+
+    font-size:2.2rem;
+
+    margin-bottom:0.5rem;
+
+    color:white;
+}
+
+.stat-box p{
+
+    color:
+    rgba(255,255,255,0.6);
+
+    font-size:0.9rem;
+}
+
+/* PRODUCTS */
+
+.products-header{
+
+    text-align:center;
+
+    margin-bottom:5rem;
+}
+
+.products-header h2{
+
+    font-size:4.5rem;
+
+    margin-bottom:1rem;
+}
+
+.products-header p{
+
+    color:
+    rgba(255,255,255,0.65);
+}
+
+.products-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:2rem;
+}
+
+.product-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    min-height:360px;
+
+    cursor:pointer;
+}
+
+.product-card.large{
+
+    grid-row:span 2;
+
+    min-height:740px;
+}
+
+.product-card img{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:0.7s;
+}
+
+.product-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+    to top,
+    rgba(0,0,0,0.88),
+    rgba(0,0,0,0.18));
+}
+
+.product-overlay{
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    z-index:2;
+
+    padding:2.5rem;
+}
+
+.product-overlay p{
+
+    color:#d6a45f;
+
+    letter-spacing:3px;
+
+    font-size:0.75rem;
+
+    margin-bottom:1rem;
+}
+
+.product-overlay h3{
+
+    font-size:2.5rem;
+
+    line-height:1.1;
+}
+
+.product-card:hover img{
+    transform:scale(1.08);
+}
+
+/* FACTORY */
+
+.factory-section{
+
+    background:#111418;
+}
+
+.factory-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:4rem;
+
+    align-items:center;
+}
+
+.factory-video{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:32px;
+
+    min-height:580px;
+}
+
+.factory-video img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:0.6s;
+}
+
+.factory-video:hover img{
+    transform:scale(1.05);
+}
+
+.play-btn{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:
+    translate(-50%,-50%);
+
+    width:100px;
+    height:100px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,0.14);
+
+    backdrop-filter:blur(12px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:2rem;
+}
+
+.factory-text h2{
+
+    font-size:4.5rem;
+
+    line-height:1.05;
+
+    margin-bottom:2rem;
+}
+
+.factory-text p{
+
+    color:
+    rgba(255,255,255,0.68);
+
+    line-height:2;
+
+    margin-bottom:2rem;
+}
+
+.factory-features{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1rem;
+}
+
+.factory-feature{
+
+    background:
+    rgba(255,255,255,0.03);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    padding:1.2rem 1.5rem;
+
+    border-radius:18px;
+}
+
+/* CONTACT */
+
+.contact-section{
+
+    padding:10rem 2rem;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.82)),
+
+    url('');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.contact-content{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    text-align:center;
+}
+
+.contact-content h2{
+
+    font-size:5rem;
+
+    line-height:1;
+
+    margin:
+    1.5rem 0 2rem;
+}
+
+.contact-content p{
+
+    color:
+    rgba(255,255,255,0.72);
+
+    line-height:2;
+
+    margin-bottom:3rem;
+}
+
+.contact-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:1rem;
+
+    flex-wrap:wrap;
+}
+
+.contact-btn{
+
+    padding:1rem 2.2rem;
+
+    border-radius:999px;
+
+    font-weight:600;
+}
+
+.contact-btn.primary{
+
+    background:#d6a45f;
+
+    color:black;
+}
+
+.contact-btn.secondary{
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    color:white;
+}
+
+.contact-btn:hover{
+    transform:translateY(-4px);
+}
+
+/* FOOTER */
+
+footer{
+
+    border-top:
+    1px solid rgba(255,255,255,0.06);
+
+    padding:3rem 2rem;
+
+    text-align:center;
+
+    color:
+    rgba(255,255,255,0.45);
+
+    font-size:0.9rem;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .bg-text{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:3.2rem;
+    }
+
+    .products-grid{
+        grid-template-columns:1fr;
+    }
+
+    .product-card.large{
+        min-height:420px;
+    }
+
+    .factory-grid{
+        grid-template-columns:1fr;
+    }
+
+    .products-header h2,
+    .factory-text h2,
+    .contact-content h2{
+
+        font-size:2.8rem;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">
+BUILD<span>MASTER</span>
+</div>
+
+<ul class="nav-links">
+
+<li>
+<a href="#">
+Home
+</a>
+</li>
+
+<li>
+<a href="#products">
+Products
+</a>
+</li>
+
+<li>
+<a href="#factory">
+Factory
+</a>
+</li>
+
+<li>
+<a href="#contact">
+Contact
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="bg-text">
+MATERIALS
+</div>
+
+<p class="small-tag">
+GLOBAL CONSTRUCTION MATERIALS
+</p>
+
+<h1>
+Built For<br>
+Global Infrastructure
+</h1>
+
+<p>
+
+Premium industrial materials supplier
+for contractors, distributors and developers
+across worldwide construction markets.
+
+</p>
+
+<div class="hero-buttons">
+
+<a
+href="#contact"
+class="hero-btn primary">
+
+Get Wholesale Quote
+
+</a>
+
+<a
+href="#products"
+class="hero-btn secondary">
+
+Explore Products
+
+</a>
+
+</div>
+
+<div class="stats-grid">
+
+<div class="stat-box">
+
+<h2>
+50+
+</h2>
+
+<p>
+Export Countries
+</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>
+25Y
+</h2>
+
+<p>
+Manufacturing Experience
+</p>
+
+</div>
+
+<div class="stat-box">
+
+<h2>
+200K
+</h2>
+
+<p>
+Factory Area
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="products">
+
+<div class="container">
+
+<div class="products-header">
+
+<p class="small-tag">
+PRODUCT CATEGORIES
+</p>
+
+<h2>
+Industrial Products
+</h2>
+
+<p>
+Manufactured for worldwide construction projects
+</p>
+
+</div>
+
+<div class="products-grid">
+
+<div class="product-card large">
+
+<img
+src="">
+
+<div class="product-overlay">
+
+<p>
+INDUSTRIAL MATERIALS
+</p>
+
+<h3>
+Structural Steel
+</h3>
+
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img
+src="">
+
+<div class="product-overlay">
+
+<p>
+BUILDING SYSTEMS
+</p>
+
+<h3>
+Concrete Blocks
+</h3>
+
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img
+src="">
+
+<div class="product-overlay">
+
+<p>
+PREMIUM WOOD
+</p>
+
+<h3>
+Timber & Plywood
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section
+id="factory"
+class="factory-section">
+
+<div class="container">
+
+<div class="factory-grid">
+
+<div class="factory-video">
+
+<img
+src="">
+
+<div class="play-btn">
+▶
+</div>
+
+</div>
+
+<div class="factory-text">
+
+<p class="small-tag">
+FACTORY TOUR
+</p>
+
+<h2>
+25+ Years Of Manufacturing Excellence
+</h2>
+
+<p>
+
+Our manufacturing facilities supply
+construction materials to over 50 countries
+with international quality standards
+and stable production capacity.
+
+</p>
+
+<div class="factory-features">
+
+<div class="factory-feature">
+ISO 9001 / CE Certified
+</div>
+
+<div class="factory-feature">
+OEM & Private Label Available
+</div>
+
+<div class="factory-feature">
+Fast Global Shipping
+</div>
+
+<div class="factory-feature">
+Professional Export Team
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section
+id="contact"
+class="contact-section">
+
+<div class="contact-content">
+
+<p class="small-tag">
+LET'S WORK TOGETHER
+</p>
+
+<h2>
+Let's Build<br>
+The Future Together
+</h2>
+
+<p>
+
+Premium construction materials
+for global projects and infrastructure.
+
+</p>
+
+<div class="contact-buttons">
+
+<a
+href="https://wa.me/50492249236"
+class="contact-btn primary">
+
+WhatsApp
+
+</a>
+
+<a
+href="#"
+class="contact-btn secondary">
+
+sales@buildmaster.com
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 BuildMaster Industrial Materials
+</p>
+
+</footer>
+
+</body>
+</html>
