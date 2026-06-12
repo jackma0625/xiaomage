@@ -1,0 +1,1218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+QuickBolt | Industrial Fasteners
+</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:
+    'Inter',
+    sans-serif;
+
+    background:#f5f7fa;
+
+    color:#111827;
+
+    overflow-x:hidden;
+
+    -webkit-font-smoothing:antialiased;
+}
+
+img{
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.container{
+
+    max-width:1280px;
+
+    margin:auto;
+
+    padding:0 2rem;
+}
+
+/* NAVBAR */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:999;
+
+    background:
+    rgba(8,15,25,0.82);
+
+    backdrop-filter:
+    blur(16px);
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.05);
+}
+
+.nav-container{
+
+    max-width:1280px;
+
+    margin:auto;
+
+    padding:1.2rem 2rem;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.logo{
+
+    color:white;
+
+    font-size:1.5rem;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#ff6b35;
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:2rem;
+
+    list-style:none;
+}
+
+.nav-links a{
+
+    color:
+    rgba(255,255,255,0.88);
+
+    font-size:0.95rem;
+
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    color:#ff6b35;
+}
+
+/* HERO */
+
+.hero{
+
+    padding:
+    160px 0 100px;
+
+    background:white;
+
+    overflow:hidden;
+}
+
+.hero-wrapper{
+
+    max-width:1280px;
+
+    margin:auto;
+
+    padding:0 2rem;
+
+    display:grid;
+
+    grid-template-columns:
+    1.1fr 1fr;
+
+    gap:4rem;
+
+    align-items:center;
+}
+
+/* LEFT */
+
+.hero-left .small-tag{
+
+    color:#ff6b35;
+
+    letter-spacing:3px;
+
+    font-size:0.8rem;
+
+    font-weight:600;
+
+    margin-bottom:1.5rem;
+}
+
+.hero-left h1{
+
+    font-size:5rem;
+
+    line-height:0.95;
+
+    margin-bottom:2rem;
+
+    color:#111827;
+
+    letter-spacing:-3px;
+}
+
+.hero-left p{
+
+    color:#6b7280;
+
+    line-height:2;
+
+    font-size:1.05rem;
+
+    margin-bottom:3rem;
+
+    max-width:600px;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:1rem;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:1rem 2rem;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    font-size:0.95rem;
+}
+
+.btn-primary{
+
+    background:#ff6b35;
+
+    color:white;
+}
+
+.btn-secondary{
+
+    border:
+    1px solid rgba(0,0,0,0.08);
+
+    color:#111827;
+
+    background:white;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* RIGHT */
+
+.hero-right{
+
+    position:relative;
+}
+
+.hero-card{
+
+    background:#111827;
+
+    border-radius:32px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,0.12);
+}
+
+.hero-card img{
+
+    width:100%;
+
+    height:600px;
+
+    object-fit:cover;
+}
+
+.hero-floating{
+
+    position:absolute;
+
+    bottom:30px;
+
+    left:-40px;
+
+    background:white;
+
+    padding:1.5rem 2rem;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.1);
+}
+
+.hero-floating h3{
+
+    font-size:2rem;
+
+    margin-bottom:0.5rem;
+}
+
+.hero-floating p{
+
+    color:#6b7280;
+
+    font-size:0.95rem;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .hero-wrapper{
+
+        grid-template-columns:1fr;
+    }
+
+    .hero-right{
+        order:-1;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .hero{
+
+        padding:
+        120px 0 70px;
+    }
+
+    .hero-left h1{
+
+        font-size:3rem;
+
+        line-height:1;
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+    }
+
+    .btn{
+
+        width:100%;
+    }
+
+    .hero-card img{
+
+        height:420px;
+    }
+
+    .hero-floating{
+
+        position:static;
+
+        margin-top:1rem;
+    }
+
+}
+
+/* SECTION */
+
+.section{
+
+    padding:6rem 0;
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:5rem;
+}
+
+.section-title h2{
+
+    font-size:3.5rem;
+
+    margin-bottom:1rem;
+}
+
+.section-title p{
+
+    color:#6b7280;
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:2;
+}
+
+/* PRODUCTS */
+
+.product-row{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:4rem;
+
+    align-items:center;
+
+    margin-bottom:5rem;
+}
+
+.product-row.reverse .product-image{
+    order:2;
+}
+
+.product-row.reverse .product-info{
+    order:1;
+}
+
+.product-image{
+
+    background:white;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    min-height:420px;
+
+    position:relative;
+
+    box-shadow:
+    0 10px 40px rgba(0,0,0,0.06);
+}
+
+.product-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:0.6s;
+}
+
+.product-image:hover img{
+    transform:scale(1.05);
+}
+
+.product-info h3{
+
+    font-size:2.4rem;
+
+    margin-bottom:1.5rem;
+
+    line-height:1.1;
+}
+
+.product-info p{
+
+    color:#6b7280;
+
+    line-height:2;
+
+    margin-bottom:2rem;
+}
+
+.product-tags{
+
+    display:flex;
+
+    gap:0.8rem;
+
+    flex-wrap:wrap;
+
+    margin-bottom:2rem;
+}
+
+.tag{
+
+    background:#eef2f7;
+
+    color:#374151;
+
+    padding:0.55rem 1rem;
+
+    border-radius:999px;
+
+    font-size:0.85rem;
+
+    font-weight:500;
+}
+
+/* FEATURES */
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:2rem;
+}
+
+.feature{
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:2.5rem;
+
+    border:
+    1px solid rgba(0,0,0,0.05);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.04);
+
+    transition:0.3s;
+}
+
+.feature:hover{
+
+    transform:translateY(-6px);
+}
+
+.feature-icon{
+
+    width:68px;
+    height:68px;
+
+    border-radius:18px;
+
+    background:#fff1eb;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.6rem;
+
+    margin-bottom:1.5rem;
+}
+
+.feature h3{
+
+    font-size:1.3rem;
+
+    margin-bottom:1rem;
+}
+
+.feature p{
+
+    color:#6b7280;
+
+    line-height:1.9;
+}
+
+
+/* CONTACT */
+
+.contact-section{
+
+    background:white;
+
+    border-radius:32px;
+
+    padding:5rem;
+
+    display:grid;
+
+    grid-template-columns:
+    1fr auto;
+
+    gap:4rem;
+
+    align-items:center;
+
+    border:
+    1px solid rgba(0,0,0,0.05);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,0.05);
+}
+
+.contact-left .small-tag{
+
+    color:#ff6b35;
+
+    letter-spacing:3px;
+
+    font-size:0.78rem;
+
+    font-weight:600;
+
+    margin-bottom:1rem;
+}
+
+.contact-left h2{
+
+    font-size:3.5rem;
+
+    margin-bottom:1.5rem;
+
+    line-height:1;
+}
+
+.contact-left p{
+
+    color:#6b7280;
+
+    line-height:2;
+
+    max-width:580px;
+}
+
+.contact-info{
+
+    margin-top:2rem;
+}
+
+.contact-info div{
+
+    margin-bottom:1rem;
+
+    color:#374151;
+
+    font-weight:500;
+}
+
+.contact-right{
+
+    text-align:right;
+}
+
+/* FOOTER */
+
+footer{
+
+    background:#0b1220;
+
+    color:#94a3b8;
+
+    text-align:center;
+
+    padding:2.5rem 2rem;
+
+    margin-top:5rem;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .product-row{
+
+        grid-template-columns:1fr;
+    }
+
+    .product-row.reverse .product-image,
+    .product-row.reverse .product-info{
+
+        order:unset;
+    }
+
+    .contact-section{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .contact-right{
+        text-align:center;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .bg-text{
+        display:none;
+    }
+
+    .hero{
+
+        min-height:auto;
+    }
+
+    .hero-content{
+
+        padding:
+        120px 2rem 70px;
+    }
+
+    .hero h1{
+
+        font-size:3rem;
+
+        line-height:1;
+    }
+
+    .hero p{
+
+        font-size:1rem;
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+    }
+
+    .btn{
+
+        width:100%;
+    }
+
+    .section-title h2,
+    .contact-left h2{
+
+        font-size:2.4rem;
+    }
+
+    .contact-section{
+
+        padding:3rem 2rem;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+<div class="nav-container">
+
+<div class="logo">
+Quick<span>Bolt</span>
+</div>
+
+<ul class="nav-links">
+
+<li><a href="#">Home</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<section class="hero">
+
+<div class="hero-wrapper">
+
+<div class="hero-left">
+
+<p class="small-tag">
+PRECISION INDUSTRIAL HARDWARE
+</p>
+
+<h1>
+Industrial<br>
+Fastening<br>
+Solutions
+</h1>
+
+<p>
+
+Manufacturing high-quality bolts,
+nuts and fastening systems
+for industrial engineering,
+construction and OEM production.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#contact"
+class="btn btn-primary">
+
+Get A Quote
+
+</a>
+
+<a href="#products"
+class="btn btn-secondary">
+
+Explore Products
+
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="hero-card">
+
+<img
+src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1400&auto=format&fit=crop">
+
+</div>
+
+<div class="hero-floating">
+
+<h3>
+20+
+</h3>
+
+<p>
+Years Manufacturing Experience
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section
+class="section"
+id="products">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Our Products
+</h2>
+
+<p>
+
+Reliable fastening systems manufactured
+for industrial, engineering and construction applications.
+
+</p>
+
+</div>
+
+<div class="product-row">
+
+<div class="product-image">
+
+<img
+src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+<div class="product-info">
+
+<h3>
+Stainless Steel Bolts
+</h3>
+
+<p>
+
+Grade 304, 316 and 410 stainless steel bolts
+with anti-corrosion coating options
+for industrial and marine applications.
+
+</p>
+
+<div class="product-tags">
+
+<div class="tag">
+304 Stainless
+</div>
+
+<div class="tag">
+Custom Length
+</div>
+
+<div class="tag">
+Anti-Corrosion
+</div>
+
+</div>
+
+<a href="#contact"
+class="btn btn-primary">
+
+Inquire Now
+
+</a>
+
+</div>
+
+</div>
+
+<div class="product-row reverse">
+
+<div class="product-image">
+
+<img
+src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+<div class="product-info">
+
+<h3>
+High-Strength Nuts
+</h3>
+
+<p>
+
+Hex nuts, flange nuts,
+lock nuts and precision-threaded solutions
+for heavy industrial equipment.
+
+</p>
+
+<div class="product-tags">
+
+<div class="tag">
+Grade 10
+</div>
+
+<div class="tag">
+Precision Thread
+</div>
+
+<div class="tag">
+OEM Support
+</div>
+
+</div>
+
+<a href="#contact"
+class="btn btn-primary">
+
+Inquire Now
+
+</a>
+
+</div>
+
+</div>
+
+<div class="product-row">
+
+<div class="product-image">
+
+<img
+src="https://images.unsplash.com/photo-1530124566582-a618bc2615dc?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+<div class="product-info">
+
+<h3>
+Custom Industrial Screws
+</h3>
+
+<p>
+
+Machine screws,
+self-tapping screws
+and customized industrial fastening solutions.
+
+</p>
+
+<div class="product-tags">
+
+<div class="tag">
+OEM / ODM
+</div>
+
+<div class="tag">
+Custom Design
+</div>
+
+<div class="tag">
+Bulk Production
+</div>
+
+</div>
+
+<a href="#contact"
+class="btn btn-primary">
+
+Inquire Now
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section
+class="section"
+id="about">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Why Choose QuickBolt
+</h2>
+
+<p>
+
+Precision manufacturing,
+strict quality standards
+and reliable export experience
+for global industrial clients.
+
+</p>
+
+</div>
+
+<div class="features">
+
+<div class="feature">
+
+<div class="feature-icon">
+🏭
+</div>
+
+<h3>
+Factory Direct
+</h3>
+
+<p>
+
+Own manufacturing facilities
+with efficient production
+and stable supply capacity.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+✅
+</div>
+
+<h3>
+ISO Certified
+</h3>
+
+<p>
+
+Strict quality inspection
+and international manufacturing standards.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+🚢
+</div>
+
+<h3>
+Global Export
+</h3>
+
+<p>
+
+Serving engineering
+and industrial customers
+across worldwide markets.
+
+</p>
+
+</div>
+
+<div class="feature">
+
+<div class="feature-icon">
+💬
+</div>
+
+<h3>
+Technical Support
+</h3>
+
+<p>
+
+Professional export service
+and fast customer communication support.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section
+class="section"
+id="contact">
+
+<div class="container">
+
+<div class="contact-section">
+
+<div class="contact-left">
+
+<p class="small-tag">
+CONTACT US
+</p>
+
+<h2>
+Request A Quote
+</h2>
+
+<p>
+
+Send us your product specifications
+and our export team
+will reply within 24 hours.
+
+</p>
+
+<div class="contact-info">
+
+<div>
+📧 sales@quickbolt.com
+</div>
+
+<div>
+📱 WhatsApp: +504 9224-9236
+</div>
+
+<div>
+💬 WeChat: hn20170623
+</div>
+
+</div>
+
+</div>
+
+<div class="contact-right">
+
+<a
+href="https://wa.me/50492249236"
+class="btn btn-primary">
+
+Message On WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+© 2026 QuickBolt Industrial Fasteners
+</p>
+
+</footer>
+
+</body>
+</html>

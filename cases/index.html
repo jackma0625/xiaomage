@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小马哥 | 外贸网站开发 · 海外服务器部署</title>
+    <meta name="description" content="专注工厂外贸网站开发，海外服务器部署，全球CDN加速。前中企动力销售，懂技术更懂你的客户。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #f8f9fa;
+        }
+        header {
+            background: #0f172a;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .logo span {
+            color: #e67e22;
+        }
+        .logo small {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            display: block;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #e67e22;
+        }
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.78)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            overflow: hidden;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .hero-tag {
+            color: #d6a45f;
+            letter-spacing: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 1.05;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+            max-width: 900px;
+        }
+        .hero-desc {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.9;
+            margin-bottom: 3rem;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+        .hero-btn {
+            padding: 1rem 2.2rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .hero-btn.primary {
+            background: #d6a45f;
+            color: #111;
+        }
+        .hero-btn.primary:hover {
+            transform: translateY(-3px);
+        }
+        .hero-btn.secondary {
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+        }
+        .hero-btn.secondary:hover {
+            background: rgba(255,255,255,0.08);
+        }
+        .hero-stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .stat-box {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 1.2rem 1.6rem;
+            border-radius: 20px;
+            min-width: 180px;
+        }
+        .stat-box h3 {
+            color: white;
+            margin-bottom: 0.4rem;
+        }
+        .stat-box p {
+            color: rgba(255,255,255,0.65);
+            font-size: 0.95rem;
+        }
+        
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .why-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            padding: 7rem 2rem;
+        }
+        .small-tag {
+            color: #d6a45f;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+        .why-left h2 {
+            font-size: 3.5rem;
+            line-height: 1.15;
+            margin-bottom: 2rem;
+            color: #0f172a;
+        }
+        .why-text {
+            color: #64748b;
+            font-size: 1.1rem;
+            line-height: 2;
+            max-width: 520px;
+            margin-bottom: 2rem;
+        }
+        .why-btn {
+            display: inline-block;
+            background: #111;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .why-btn:hover {
+            transform: translateY(-3px);
+        }
+        .why-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .why-item {
+            display: flex;
+            gap: 1.5rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .why-item:hover {
+            transform: translateY(-5px);
+        }
+        .why-item span {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d6a45f;
+            min-width: 60px;
+        }
+        .why-item h3 {
+            margin-bottom: 0.8rem;
+            color: #111827;
+        }
+        .why-item p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+        .case-section {
+            padding: 8rem 2rem;
+        }
+        .case-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .case-header h2 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+        .case-header p {
+            color: #64748b;
+        }
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+        .case-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            min-height: 560px;
+            cursor: pointer;
+            background: #111;
+            isolation: isolate;
+        }
+        .case-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.7s;
+        }
+        .case-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+            z-index: 1;
+        }
+        .case-overlay {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            padding: 2.5rem;
+            width: 100%;
+        }
+        .case-type {
+            color: #d6a45f;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .case-overlay h3 {
+            font-size: 2.3rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .case-desc {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .case-btn {
+            display: inline-block;
+            padding: 0.9rem 1.8rem;
+            background: white;
+            color: black;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .case-btn:hover {
+            transform: translateY(-3px);
+        }
+        .case-card:hover img {
+            transform: scale(1.08);
+        }
+        .services-section {
+            padding: 8rem 2rem;
+            background: #0f1115;
+        }
+        .services-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .services-header h2 {
+            font-size: 4rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .services-header p {
+            color: rgba(255,255,255,0.6);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .service-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 30px;
+            padding: 3rem 2.2rem;
+            transition: 0.4s;
+        }
+        .service-box:hover {
+            transform: translateY(-8px);
+        }
+        .service-label {
+            color: #d6a45f;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .service-box h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .service-price {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .service-desc {
+            color: rgba(255,255,255,0.65);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        .service-box ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        .service-box li {
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .service-box li::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #d6a45f;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+        .service-btn {
+            display: inline-block;
+            padding: 0.95rem 1.8rem;
+            border-radius: 999px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .service-btn:hover {
+            transform: translateY(-3px);
+        }
+        .featured {
+            border: 1px solid rgba(214,164,95,0.45);
+        }
+        .footer {
+            background: #0b0d10;
+            color: white;
+            padding: 6rem 2rem 2rem;
+        }
+        .footer-top {
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 5rem;
+            flex-wrap: wrap;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .footer-brand {
+            max-width: 420px;
+        }
+        .footer-tag {
+            color: #d6a45f;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .footer-brand h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .footer-desc {
+            color: rgba(255,255,255,0.65);
+            line-height: 1.9;
+        }
+        .footer-links {
+            display: flex;
+            gap: 5rem;
+            flex-wrap: wrap;
+        }
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 0.8rem;
+        }
+        .footer-column a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .footer-column a:hover {
+            color: #d6a45f;
+        }
+        .footer-column p {
+            color: rgba(255,255,255,0.65);
+            line-height: 1.8;
+        }
+        .footer-bottom {
+            max-width: 1300px;
+            margin: auto;
+            padding-top: 2rem;
+            text-align: center;
+        }
+        .footer-bottom p {
+            color: rgba(255,255,255,0.45);
+            font-size: 0.9rem;
+        }
+        .faq-section {
+            padding: 8rem 2rem;
+            background: #f8f9fb;
+        }
+        .faq-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .faq-header h2 {
+            font-size: 4rem;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+        .faq-header p {
+            color: #64748b;
+        }
+        .faq-list {
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .faq-item:hover {
+            transform: translateY(-3px);
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.8rem 2rem;
+            cursor: pointer;
+        }
+        .faq-question h3 {
+            font-size: 1.2rem;
+            color: #111827;
+        }
+        .faq-question span {
+            font-size: 1.8rem;
+            color: #d6a45f;
+        }
+        .faq-answer {
+            padding: 0 2rem 2rem;
+            color: #64748b;
+            line-height: 1.9;
+            display: none;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        .contact-section {
+            position: relative;
+            padding: 10rem 2rem;
+            background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.78)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        .contact-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+        .contact-section h2 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            color: white;
+            margin: 1.5rem 0 2rem;
+        }
+        .contact-desc {
+            color: rgba(255,255,255,0.72);
+            font-size: 1.15rem;
+            line-height: 2;
+            margin-bottom: 3rem;
+        }
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+        .contact-main-btn {
+            display: inline-block;
+            padding: 1rem 2.2rem;
+            background: #d6a45f;
+            color: black;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .contact-main-btn:hover {
+            transform: translateY(-3px);
+        }
+        .wechat-btn {
+            padding: 1rem 2.2rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: #07c160;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .wechat-btn:hover {
+            background: #06ad56; 
+        }
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .contact-info-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 24px;
+        }
+        .contact-label {
+            color: #d6a45f;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .contact-info-box h3 {
+            color: white;
+            font-size: 1.4rem;
+        }
+        
+        @media (max-width: 768px) {
+    .hero {
+        padding: 2rem 1rem;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+        line-height: 1.3;
+        word-break: break-word;
+        max-width: 100%;
+    }
+    .hero-desc {
+        font-size: 0.95rem;
+    }
+    .hero-stats {
+        flex-direction: column;
+    }
+    .nav-links {
+        display: none;
+    }
+    .case-grid {
+        justify-content: center;
+    }
+    .case-card {
+        min-height: 520px;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .contact-section h2 {
+        font-size: 2rem;
+        line-height: 1.4;
+        word-break: keep-all;
+        white-space: normal;
+    }
+    .contact-section {
+        padding: 4rem 1rem;
+    }
+    .contact-desc {
+        font-size: 0.95rem;
+        padding: 0 1rem;
+    }
+    .contact-buttons {
+        gap: 0.8rem;
+    }
+    .contact-main-btn, .wechat-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    .contact-info-grid {
+        gap: 1rem;
+    }
+    .contact-info-box {
+        padding: 1.2rem;
+    }
+    .footer-links {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    .footer-column {
+        align-items: center;
+    }
+    .footer-brand h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .footer-brand {
+        text-align: center;
+        margin: 0 auto;
+    }
+    .footer-top {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    /* 修复：外贸官网解决方案 */
+    .services-header h2 {
+        font-size: 2.2rem;
+        line-height: 1.3;
+        word-break: keep-all;
+        text-align: center;
+        padding: 0 0.5rem;
+    }
+    .services-header p {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+    /* 修复：三个卡片居中 */
+    .services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    .service-box {
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+    .service-box h3 {
+        font-size: 1.6rem;
+    }
+    .case-header h2 {
+        font-size: 2.5rem;
+    }
+    .case-header p {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+    .why-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 3rem 1.5rem;
+    }
+    .why-left h2 {
+        font-size: 2rem;
+    }
+    .why-text {
+        font-size: 1rem;
+    }
+    .why-item {
+        padding: 1.5rem;
+    }
+    .faq-header h2 {
+        font-size: 2.5rem;
+    }
+    .faq-question {
+        padding: 1.2rem 1.5rem;
+    }
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+    .faq-answer {
+        padding: 0 1.5rem 1.5rem;
+    }
+    section {
+        padding: 3rem 1rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            小马哥 <span>Dev</span>
+            <small>外贸网站开发 · 海外部署</small>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">首页</a></li>
+            <li><a href="#services">服务</a></li>
+            <li><a href="#case">案例</a></li>
+            <li><a href="#contact">联系</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <p class="hero-tag">GLOBAL EXPORT WEBSITE STUDIO</p>
+        <h1>帮中国工厂打造<br>真正能接外贸订单的网站</h1>
+        <p class="hero-desc">前中企动力销售 · 现独立开发者<br>常住洪都拉斯 · 更懂海外客户浏览习惯</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="hero-btn primary">免费咨询</a>
+            <a href="#case" class="hero-btn secondary">查看案例</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-box"><h3>全球部署</h3><p>Vercel CDN</p></div>
+            <div class="stat-box"><h3>免备案</h3><p>海外服务器</p></div>
+            <div class="stat-box"><h3>响应式</h3><p>手机 / 平板 / PC</p></div>
+        </div>
+    </div>
+</section>
+<section class="why-section">
+    <div class="why-left">
+        <p class="small-tag">WHY CHOOSE ME</p>
+        <h2>不只是做网站<br>更懂中国工厂怎么接外贸订单</h2>
+        <p class="why-text">前中企动力销售，知道传统建站公司的套路。现在自己独立开发，使用全球部署方案，更适合真正做海外市场的企业。</p>
+        <div class="why-buttons"><a href="#contact" class="why-btn">免费咨询</a></div>
+    </div>
+    <div class="why-right">
+        <div class="why-item"><span>01</span><div><h3>全球CDN部署</h3><p>Vercel 全球边缘网络，海外客户打开更快。</p></div></div>
+        <div class="why-item"><span>02</span><div><h3>源码完整交付</h3><p>GitHub管理，不绑架客户，后续维护更自由。</p></div></div>
+        <div class="why-item"><span>03</span><div><h3>海外真实视角</h3><p>常住洪都拉斯，更了解国外客户浏览习惯。</p></div></div>
+    </div>
+</section>
+<section id="services" class="services-section">
+    <div class="services-header">
+        <p class="small-tag">SERVICES</p>
+        <h2>外贸官网解决方案</h2>
+        <p>面向工厂 / 制造业 / 品牌企业的现代网站</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-box">
+            <p class="service-label">STARTER</p>
+            <h3>基础外贸官网</h3>
+            <div class="service-price">Starting From ¥3,800</div>
+            <p class="service-desc">适合首次建立海外品牌形象的企业</p>
+            <ul><li>企业展示网站</li><li>产品展示页面</li><li>WhatsApp集成</li><li>手机端优化</li><li>全球CDN部署</li></ul>
+            <a href="#contact" class="service-btn">立即咨询</a>
+        </div>
+        <div class="service-box featured">
+            <p class="service-label">BUSINESS</p>
+            <h3>品牌型外贸官网</h3>
+            <div class="service-price">Starting From ¥6,800</div>
+            <p class="service-desc">更适合长期运营海外市场的工厂</p>
+            <ul><li>多页面产品结构</li><li>中英西多语言</li><li>SEO基础优化</li><li>产品分类系统</li><li>品牌视觉设计</li></ul>
+            <a href="#contact" class="service-btn">立即咨询</a>
+        </div>
+        <div class="service-box">
+            <p class="service-label">PREMIUM</p>
+            <h3>高端工业品牌站</h3>
+            <div class="service-price">Custom Pricing</div>
+            <p class="service-desc">面向高端制造业与出口品牌</p>
+            <ul><li>高级动效设计</li><li>产品详情系统</li><li>全球SEO结构</li><li>高速静态生成</li><li>长期技术维护</li></ul>
+            <a href="#contact" class="service-btn">立即咨询</a>
+        </div>
+    </div>
+</section>
+<section id="case" class="case-section">
+    <div class="case-header">
+        <p class="small-tag">SELECTED WORK</p>
+        <h2>已上线案例</h2>
+        <p>专注高端展示型网站 · 海外部署 · 手机端优先</p>
+    </div>
+    <div class="case-grid">
+        <div class="case-card">
+            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800" alt="">
+            <div class="case-overlay">
+                <p class="case-type">五金工厂</p>
+                <h3>Hardware Factory</h3>
+                <p class="case-desc">React开发 · 手机端优化</p>
+                <a href="/cases/wujin.html?from=case" class="case-btn">查看案例 →</a>
+            </div>
+        </div>
+        <div class="case-card">
+            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800" alt="">
+            <div class="case-overlay">
+                <p class="case-type">INDUSTRIAL WEBSITE</p>
+                <h3>Factory Demo</h3>
+                <p class="case-desc">机械制造</p>
+                <a href="/cases/jixie.html?from=case" class="case-btn">查看案例 →</a>
+            </div>
+        </div>
+        <div class="case-card">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800" alt="">
+            <div class="case-overlay">
+                <p class="case-type">INDUSTRIAL WEBSITE</p>
+                <h3>建材工厂</h3>
+                <p class="case-desc">高端建材外贸官网 · 全球CDN部署 · 产品展示</p>
+                <a href="/cases/jiancai.html?from=case" class="case-btn">查看案例 →</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="faq-section">
+    <div class="faq-header">
+        <p class="small-tag">FAQ</p>
+        <h2>常见问题</h2>
+        <p>关于外贸官网，你可能关心这些问题</p>
+    </div>
+    <div class="faq-list">
+        <div class="faq-item">
+            <div class="faq-question"><h3>需要备案吗？</h3><span>+</span></div>
+            <div class="faq-answer"><p>不需要。网站部署在海外服务器，面向海外客户，无需国内备案流程。</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><h3>海外客户打开速度快吗？</h3><span>+</span></div>
+            <div class="faq-answer"><p>使用 Vercel 全球 CDN，美国、欧洲、东南亚访问速度都非常快。</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><h3>后续修改网站怎么办？</h3><span>+</span></div>
+            <div class="faq-answer"><p>可选择年度维护服务，也可以按次修改，不强制绑定。</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question"><h3>网站源码归谁？</h3><span>+</span></div>
+            <div class="faq-answer"><p>完整源码交付客户，GitHub 管理，后续维护更自由。</p></div>
+        </div>
+    </div>
+</section>
+<section id="contact" class="contact-section">
+    <div class="contact-bg"></div>
+    <div class="contact-content">
+        <p class="small-tag">LET'S WORK TOGETHER</p>
+        <h2>让你的工厂网站<br>看起来真正像国际品牌</h2>
+        <p class="contact-desc">前中企动力销售 · 现独立开发者<br>常住洪都拉斯 · 更懂海外客户浏览习惯</p>
+        <div class="contact-buttons">
+            <a href="https://wa.me/50492249236" target="_blank" class="contact-main-btn">WhatsApp 联系</a>
+            <button class="wechat-btn" id="copyWechatBtn">复制微信号</button>
+        </div>
+        <div class="contact-info-grid">
+            <div class="contact-info-box"><p class="contact-label">WeChat</p><h3 id="wechat-id">hn20170623</h3></div>
+            <div class="contact-info-box"><p class="contact-label">WhatsApp</p><h3>+504 9224-9236</h3></div>
+            <div class="contact-info-box"><p class="contact-label">Location</p><h3>Honduras</h3></div>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-brand">
+            <p class="footer-tag">GLOBAL EXPORT WEBSITE STUDIO</p>
+            <h2>小马哥 Dev</h2>
+            <p class="footer-desc">专注外贸官网开发 · 全球部署 · 工业品牌网站</p>
+        </div>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h4>Navigation</h4>
+                <a href="#">首页</a>
+                <a href="#services">服务</a>
+                <a href="#case">案例</a>
+                <a href="#contact">联系</a>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <a href="#">外贸官网</a>
+                <a href="#">工厂网站</a>
+                <a href="#">多语言网站</a>
+                <a href="#">海外部署</a>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <p>微信：hn20170623</p>
+                <p>WhatsApp：+504 9224-9236</p>
+                <p>Honduras</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 小马哥 Dev · Built with React & Vercel</p>
+    </div>
+</footer>
+<script>
+    const copyBtn = document.getElementById('copyWechatBtn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            const wechatId = document.getElementById('wechat-id').innerText;
+            navigator.clipboard.writeText(wechatId).then(function() {
+                alert('✅ 微信号已复制：' + wechatId + '\n\n请打开微信 → 添加朋友 → 粘贴搜索');
+            }).catch(function() {
+                alert('⚠️ 复制失败，请手动添加微信号：' + wechatId);
+            });
+        });
+    }
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+</script>
+</body>
+</html>
